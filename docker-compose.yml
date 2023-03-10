@@ -1,0 +1,23 @@
+version: "3"
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=bot
+    ports:
+      - "5432:5432"
+  admin:
+    build: admin
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=bot
+  bot:
+    build: bot
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=bot
+      - BOT_TOKEN=6228997644:AAEVu4HB79yY7tA1dtOPL-Qzv277KDexeqA
